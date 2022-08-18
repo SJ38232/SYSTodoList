@@ -1,42 +1,40 @@
 @charset "UTF-8";
 .todoList{
-	height : 1000px;
-	width : 820px;
+	height : 52vw;
+	width : 45vw;
 	background : #ffff99; 
-	border : 1px solid brown;
+	border : 1px solid black;
 	float : left;
-	margin : 100px;
-	overflow : auto;
+	margin : 1vw;
 }
 .expiredList{
-	height: 1000px;
-	width: 820px;
+	height : 52vw;
+	width : 45vw;
 	background: #C73E3E; 
-	border : 1px solid brown;
+	border : 1px solid black;
 	float : left;
-	margin : 100px;
-	overflow : auto;
+	margin : 1vw;
 }
 .title{
 	background : black;
 	color : white;
 	margin-top : 0px;
-	height : 70px;
+	height : 4vw;
 }
 .todo{
 	border-radius : 15px;
-	height : 100px;
-	width : 800px;
+	height : 6vw;
+	width : 45vw;
 	background : #ffff99; 
 	margin : auto;
 	margin-top : 6px;
 	border-collapse : collapse;
-	box-shadow : 0 0 0 1px brown;	
+	box-shadow : 0 0 0 1px black;	
 }
 .expired{
 	border-radius : 15px;
-	height : 100px;
-	width : 800px;
+	height : 6vw;
+	width : 45vw;
 	background : #C73E3E; 
 	margin : auto;
 	margin-top : 6px;
@@ -44,29 +42,16 @@
 	box-shadow : 0 0 0 1px black;	
 }
 .checkboxTd{
-	border-right : 1px solid brown;
-	width : 10%;
-	text-align : center;
-}
-.deleteBottonTd{
-	border-left : 1px solid brown;
-	width : 10%;
-	text-align : center;
-}
-.contentTd{
-	border-top : 1px solid brown;
-}
-.expiredcheckboxTd{
 	border-right : 1px solid black;
 	width : 10%;
 	text-align : center;
 }
-.expireddeleteBottonTd{
+.deleteBottonTd{
 	border-left : 1px solid black;
 	width : 10%;
 	text-align : center;
 }
-.expiredcontentTd{
+.contentTd{
 	border-top : 1px solid black;
 }
 .dateTd{
@@ -75,11 +60,11 @@
 .done{
 	border-radius : 15px;
 	text-decoration : line-through;
-	height : 100px;
-	width : 800px;
+	height : 6vw;
+	width : 45vw;
 	background : #D7D77E; 
 	margin : auto;
 	margin-top : 6px;
 	border-collapse : collapse;
-	box-shadow : 0 0 0 1px brown;	
+	box-shadow : 0 0 0 1px black;	
 }
