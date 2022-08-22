@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>TodoList</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id = "todoListDiv"class="todoList">
+			<div>
+				<h1 class="title">TodoList</h1>
+				<table class = "todo">
+					<tr>
+						<td class="checkboxTd" rowspan="2">
+						</td>
+						<td id="today" class="todoDateTd">
+							등록일 : 
+						</td>
+						<td class="dateTd">
+							마감일 : <input id="inputDeadLine" type="date">
+						</td>
+						<td class="deleteBottonTd" rowspan="2">
+						</td>
+					</tr>
+					<tr>
+						<td class="contentTd" colspan="2">
+							<input id="inputTodo" type="text">
+							<input type="button" id="submitButton" value = "입력" onclick="submitContent()">
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id = "expiredListDiv"class="expiredList">
+			<h1 class="title">ExpiredList</h1>
+		</div>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>

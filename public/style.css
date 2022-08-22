@@ -1,0 +1,70 @@
+@charset "UTF-8";
+.todoList{
+	height : 52vw;
+	width : 45vw;
+	background : #ffff99; 
+	border : 1px solid black;
+	float : left;
+	margin : 1vw;
+}
+.expiredList{
+	height : 52vw;
+	width : 45vw;
+	background: #C73E3E; 
+	border : 1px solid black;
+	float : left;
+	margin : 1vw;
+}
+.title{
+	background : black;
+	color : white;
+	margin-top : 0px;
+	height : 4vw;
+}
+.todo{
+	border-radius : 15px;
+	height : 6vw;
+	width : 45vw;
+	background : #ffff99; 
+	margin : auto;
+	margin-top : 6px;
+	border-collapse : collapse;
+	box-shadow : 0 0 0 1px black;	
+}
+.expired{
+	border-radius : 15px;
+	height : 6vw;
+	width : 45vw;
+	background : #C73E3E; 
+	margin : auto;
+	margin-top : 6px;
+	border-collapse : collapse;
+	box-shadow : 0 0 0 1px black;	
+}
+.checkboxTd{
+	border-right : 1px solid black;
+	width : 10%;
+	text-align : center;
+}
+.deleteBottonTd{
+	border-left : 1px solid black;
+	width : 10%;
+	text-align : center;
+}
+.contentTd{
+	border-top : 1px solid black;
+}
+.dateTd{
+	width : 40%;
+}
+.done{
+	border-radius : 15px;
+	text-decoration : line-through;
+	height : 6vw;
+	width : 45vw;
+	background : #D7D77E; 
+	margin : auto;
+	margin-top : 6px;
+	border-collapse : collapse;
+	box-shadow : 0 0 0 1px black;	
+}
