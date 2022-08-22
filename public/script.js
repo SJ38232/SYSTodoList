@@ -46,7 +46,7 @@ function createExpired(expiredContent) {
     let checked = JSON.parse(sapList[3]);
     createContent(todoListDiv, submitDate, deadLine, inputTodo, checked);
 }
-//Content의 Check의 onclick 함수
+//check의 여부에 따라 Content의 CSS 스타일 변경
 function changeCheck(check) {
     //check를 기준으로 포함된 테이블 정보 읽음
     let table = check.parentElement.parentElement.parentElement;
