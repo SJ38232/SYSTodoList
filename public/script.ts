@@ -128,11 +128,11 @@ function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: st
 	table.appendChild(statusTr);
 	statusTr.appendChild(checkBoxTd);
 	checkBoxTd.appendChild(checkbox);
-	statusTr.append(submitDateTd);
-	statusTr.append(deadLineTd);
+	statusTr.appendChild(submitDateTd);
+	statusTr.appendChild(deadLineTd);
 	statusTr.appendChild(deleteButtonTd);
 	deleteButtonTd.appendChild(deleteButton);
-	contentTr.append(contentTd);
+	contentTr.appendChild(contentTd);
 	table.appendChild(contentTr);
 	div.appendChild(table);
 	//매개변수를 이용하여 내용 설정
@@ -152,7 +152,6 @@ function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: st
 	deleteButtonTd.setAttribute("class","deleteBottonTd");
 	contentTd.setAttribute("class","contentTd");
 	contentTd.setAttribute("colspan","2");
-	contentTd.setAttribute("onclick","contentUpdateMode(this)");
 	contentTd.innerText = content;
 	if(targetDiv.getAttribute("id") == "expiredListDiv"){
 		if(checkbox.checked){// expiredList에 속하면서 이미 완료된 Content의 경우 표시할 필요가 없으므로 삭제
@@ -172,10 +171,6 @@ function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: st
 	let insertTarget = targetDiv.childNodes[2];//역순으로 Content생성
 	targetDiv.insertBefore(div,insertTarget);
 	(<HTMLInputElement>document.getElementById("inputTodo")).value = "";// 다음 입력을 위하여 input의 스트링 초기화
-}
-//Content 내용 수정
-function updateContent(content: HTMLTableCellElement): void{
-	
 }
 //Date 타입을 String으로 변환
 function transDate(date: Date): string{
