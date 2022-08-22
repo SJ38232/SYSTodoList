@@ -1,5 +1,5 @@
 //HTML에서 Data를 입력받아 새로운 Content 생성
-function submitContent(){
+function submitContent(): void{
 	// HTML에서 입력을 받고 조건을 만족하지 못할경우 alert
 	let todoListDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("todoListDiv");
 	let inputTodo: string = (<HTMLInputElement>document.getElementById("inputTodo")).value;
@@ -26,7 +26,7 @@ function submitContent(){
 	}
 }
 //todoList에 들어갈 Content를 만듬
-function createTodo(todoContent: string){
+function createTodo(todoContent: string): void{
 	let sapList: string[] = todoContent.split("/");//(등록시간/만료시간/내용/체크여부)형식을 자름
 	let todoListDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("todoListDiv");
 	let submitDate: string = sapList[0];
@@ -36,7 +36,7 @@ function createTodo(todoContent: string){
 	createContent(todoListDiv,submitDate,deadLine,inputTodo,checked);
 }
 //ExpiredList에 들어갈 Content를 만듬
-function createExpired(expiredContent: string){
+function createExpired(expiredContent: string): void{
 	let sapList: string[] = expiredContent.split("/");//(등록시간/만료시간/내용/체크여부)형식을 자름
 	let todoListDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("expiredListDiv");
 	let submitDate: string = sapList[0];
@@ -46,7 +46,7 @@ function createExpired(expiredContent: string){
 	createContent(todoListDiv,submitDate,deadLine,inputTodo,checked);
 }
 //check의 여부에 따라 Content의 CSS 스타일 변경
-function changeCheck(check: HTMLElement){
+function changeCheck(check: HTMLElement): void{
 	//check를 기준으로 포함된 테이블 정보 읽음
 	let table: HTMLTableElement = <HTMLTableElement>check.parentElement.parentElement.parentElement;
 	let dateTr: HTMLTableRowElement = table.rows[0];
@@ -54,9 +54,9 @@ function changeCheck(check: HTMLElement){
 	let checked: boolean = (<HTMLInputElement>table.rows[0].cells[0].firstChild).checked;
 	let submitDate: string = dateTr.cells[1].innerText;
 	let deadLine: string = dateTr.cells[2].innerText;
+	let content: string = contentTr.cells[0].innerText;
 	submitDate = submitDate.substring(6);//(등록일 : )제거
 	deadLine = deadLine.substring(6);//(마감일 : )제거
-	let content: string = contentTr.cells[0].innerText;
 	let data: string = submitDate+"/"+deadLine+"/"+content;
 	let todoList: string[] = JSON.parse(localStorage.getItem("todoList"));
 	for(let i:number = 0 ; i < todoList.length; i++){
@@ -74,7 +74,7 @@ function changeCheck(check: HTMLElement){
 	}
 }
 //Content를 localStorage와 HTML에서 삭제
-function deleteContent(button: HTMLButtonElement){
+function deleteContent(button: HTMLButtonElement): void{
 	//button을 기준으로 포함된 테이블 정보 읽음
 	let div: HTMLDivElement = <HTMLDivElement>button.parentElement.parentElement.parentElement.parentElement;
 	let table: HTMLTableElement  = <HTMLTableElement>button.parentElement.parentElement.parentElement;
@@ -83,9 +83,9 @@ function deleteContent(button: HTMLButtonElement){
 	let checked: boolean = (<HTMLInputElement>table.rows[0].cells[0].firstChild).checked;
 	let submitDate: string = dateTr.cells[1].innerText;
 	let deadLine: string = dateTr.cells[2].innerText;
-	submitDate = submitDate.substring(6);
-	deadLine = deadLine.substring(6);
 	let content: string = contentTr.cells[0].innerText;
+	submitDate = submitDate.substring(6);//(등록일 : )제거
+	deadLine = deadLine.substring(6);//(마감일 : )제거
 	let data: string = submitDate+"/"+deadLine+"/"+content+"/"+checked;
 	let todoList:string[] = JSON.parse(localStorage.getItem("todoList"));
 	for(let i:number = 0 ; i < todoList.length; i++){
@@ -98,7 +98,7 @@ function deleteContent(button: HTMLButtonElement){
 	div.remove();//div 삭제하여  HTML상의 Content 삭제
 }
 //날짜를 비교하여 만료 여부 확인
-function checkExpired(todoContent: string){
+function checkExpired(todoContent: string): boolean{
 	let sapList: string[] = todoContent.split("/");//(등록시간/만료시간/내용/체크여부)형식을 자름
 	let sapDeadLine: string[] = sapList[1].split("-");//(년-월-일)형식을 자름
 	// 현재 시간과 비교하기 위해 자른 데이터를 바탕으로 Date 타입을 생성
@@ -112,7 +112,7 @@ function checkExpired(todoContent: string){
 	}
 }
 //매개변수를 이용하여 새로운 Content 제작
-function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: string,content: string,checked: boolean){
+function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: string,content: string,checked: boolean): void{
 	//Content의 모양을 잡아주기 위해 HTMLDOM들을 생성하여 부모자식관계 형성
 	let div: HTMLDivElement = document.createElement("div");
 	let table: HTMLTableElement = document.createElement("table");
@@ -174,15 +174,15 @@ function createContent(targetDiv: HTMLDivElement,submitDate: string,deadline: st
 	(<HTMLInputElement>document.getElementById("inputTodo")).value = "";// 다음 입력을 위하여 input의 스트링 초기화
 }
 //Content 내용 수정
-function updateContent(content: HTMLTableCellElement){
+function updateContent(content: HTMLTableCellElement): void{
 	
 }
 //Date 타입을 String으로 변환
-function transDate(date: Date){
+function transDate(date: Date): string{
 	let day: string = date.getFullYear()+"-"+ (date.getMonth()+1)+"-"+date.getDate();
 	return day;
 }
-window.onload = function(){
+window.onload = function(): void{
 	let today: HTMLTableCellElement = <HTMLTableCellElement>document.getElementById("today");
 	today.innerText = "등록일 : "+transDate(new Date()); 
 	let todoList: string[] = [];

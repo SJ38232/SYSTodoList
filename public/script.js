@@ -55,9 +55,9 @@ function changeCheck(check) {
     let checked = table.rows[0].cells[0].firstChild.checked;
     let submitDate = dateTr.cells[1].innerText;
     let deadLine = dateTr.cells[2].innerText;
+    let content = contentTr.cells[0].innerText;
     submitDate = submitDate.substring(6); //(등록일 : )제거
     deadLine = deadLine.substring(6); //(마감일 : )제거
-    let content = contentTr.cells[0].innerText;
     let data = submitDate + "/" + deadLine + "/" + content;
     let todoList = JSON.parse(localStorage.getItem("todoList"));
     for (let i = 0; i < todoList.length; i++) {
@@ -85,9 +85,9 @@ function deleteContent(button) {
     let checked = table.rows[0].cells[0].firstChild.checked;
     let submitDate = dateTr.cells[1].innerText;
     let deadLine = dateTr.cells[2].innerText;
-    submitDate = submitDate.substring(6);
-    deadLine = deadLine.substring(6);
     let content = contentTr.cells[0].innerText;
+    submitDate = submitDate.substring(6); //(등록일 : )제거
+    deadLine = deadLine.substring(6); //(마감일 : )제거
     let data = submitDate + "/" + deadLine + "/" + content + "/" + checked;
     let todoList = JSON.parse(localStorage.getItem("todoList"));
     for (let i = 0; i < todoList.length; i++) {
